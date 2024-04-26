@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+    width: 8px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+:hover::-webkit-scrollbar {
+    width: 8px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+
+
+/* Optional: show position indicator in red */
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+ 
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
+@layer base {
+html {
+    backface-visibility: hidden;
+    font-family: "Red Hat Display", sans-serif;
+    font-optical-sizing: auto;
+    
+}
+
+} 
+[type="password"] {
+    @apply shadow-md border-[1px] border-[#fff]
+}
+
+textarea:focus {
+    --tw-ring-color: #ffffff;
+    outline: none;
+    border-color: #999;
+}
+input:focus, [type="password"]:focus {
+    --tw-ring-color: #ffffff;
+    outline: none;
+    border-color: rgb(213, 213, 213);
+}
+body {
+    @apply bg-[#f4f2ee]
+}
+
+.markdown-content {
+    p {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    h3{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    ul {
+        margin-left: 20px;
+    }
+}
+.sidebar-link {
+    @apply py-1 mb-1 px-4 font-bold text-base hover:text-neutral-900 cursor-pointer hover:bg-[rgb(232,232,229)] hover:rounded-md
+}
+
+.trans {
+    @apply transition duration-300 ease-in-out
+}
+
+.faq-button {
+    @apply mx-1 py-1 border-[1px] border-neutral-600 rounded-2xl px-2 my-3 hover:bg-[rgb(232,232,229)] hover:cursor-pointer leading-10
+}
+
+.error-message {
+    @apply px-2 py-2 my-1 text-white rounded-md bg-rose-500
+}
