@@ -76,7 +76,7 @@ function App() {
     
     let prompt = target.innerHTML;
     if (conversation.length % 2 === 1) {
-      e.preventDefault();
+      // e.preventDefault();
       return;
     }
     console.log(prompt);
