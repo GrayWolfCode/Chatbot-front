@@ -67,7 +67,7 @@ export const createConversation = async (projectId, title) => {
 };
 export const getResponse = async (prompt) => {
 
-  const openai_url = `https://767tpbkbzbdma9-5000.proxy.runpod.net/upload`;
+  const openai_url = ` https://dbfc-2a0b-7140-8-1-5054-ff-fe1f-39b5.ngrok-free.app/upload`;
   const headers = {
     "content-type": "application/json",
   };
