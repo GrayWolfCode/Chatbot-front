@@ -67,12 +67,11 @@ export const createConversation = async (projectId, title) => {
 };
 export const getResponse = async (prompt) => {
 
-  const openai_url = ` https://dbfc-2a0b-7140-8-1-5054-ff-fe1f-39b5.ngrok-free.app/upload`;
+  const openai_url = `https://f68b-2a0b-7140-8-1-5054-ff-fe1f-39b5.ngrok-free.app/process`;
   const headers = {
     "content-type": "application/json",
   };
   
-
   try {
     const response = await axios.post(openai_url, {
       question: prompt
@@ -80,7 +79,27 @@ export const getResponse = async (prompt) => {
     return response.data;
   } catch (error) {
     // Handle errors appropriately (e.g., logging, displaying error messages)
-    console.error("Error fetching sessions:", error);
+    console.error("Error getting response:", error);
+    throw error;
+  }
+};
+
+
+export const trainDocument = async (document) => {
+
+  const openai_url = `https://f68b-2a0b-7140-8-1-5054-ff-fe1f-39b5.ngrok-free.app/upload`;
+  const headers = {
+    "content-type": "application/json",
+  };
+  
+  try {
+    const response = await axios.post(openai_url, {
+      document: document
+    });
+    return response.data;
+  } catch (error) {
+    // Handle errors appropriately (e.g., logging, displaying error messages)
+    console.error("Error uploading document:", error);
     throw error;
   }
 };

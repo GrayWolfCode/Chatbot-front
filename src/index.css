@@ -74,7 +74,7 @@ body {
     }
 }
 .sidebar-link {
-    @apply py-1 mb-1 px-4 font-bold text-base hover:text-neutral-900 cursor-pointer hover:bg-[rgb(232,232,229)] hover:rounded-md
+    @apply py-1 mb-3 px-4 font-bold text-base hover:text-neutral-900 cursor-pointer hover:bg-[#ABAAA7] hover:rounded-md text-xl
 }
 
 .trans {
