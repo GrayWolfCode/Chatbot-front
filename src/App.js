@@ -19,6 +19,7 @@ function App() {
   const chat = useRef(null);
   const [prompt, setPrompt] = useState("");
   const [document, setDocument] = useState("");
+  const [uploading, setUploading] = useState(false);
   const [conversation, setConversation] = useState([]);
   const [updateScrollView, setUpdateScrollView] = useState(0);
   const [updateConversation, setUpdateConversation] = useState(0);
@@ -104,15 +105,22 @@ function App() {
   }
 
   const uploadDocument = () => {
+    if( document.length < 1 ) {
+      enqueueSnackbar('Type your document!')
+      return;
+    }
+    setUploading(true);
     trainDocument(document)
       .then((res) => {
         console.log(res.success);
         if( res.success ) {
           enqueueSnackbar('Uploaded successfully!')
+          setUploading(false);
         }
       })
       .catch(function (error) {
         console.error(error);
+        setUploading(false);
       });
   }
 
@@ -162,9 +170,17 @@ function App() {
                 />
               </div>
               <div className='flex justify-center'>  
-                <button className=' trans sidebar-link bg-[#d6d5d2] rounded-md w-64' onClick={() => uploadDocument()}>
-                  Upload
-                </button>
+              <button type="button" className="w-48 text-center justify-center inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-indigo-500 hover:bg-indigo-400 transition ease-in-out duration-150 " disabled="" onClick={() => uploadDocument()}>
+                  { uploading ? 
+                    <div className='flex'>
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Uploading...
+                    </div>
+                : <div>Upload</div> }
+              </button>                
               </div>
             </div>
         }
