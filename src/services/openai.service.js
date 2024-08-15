@@ -67,7 +67,7 @@ export const createConversation = async (projectId, title) => {
 };
 export const getResponse = async (prompt) => {
 
-  const openai_url = `https://28c7-15-204-240-135.ngrok-free.app/process`;
+  const openai_url = `https://5dd9-15-204-240-135.ngrok-free.app/process`;
   const headers = {
     "content-type": "application/json",
   };
@@ -87,7 +87,7 @@ export const getResponse = async (prompt) => {
 
 export const trainDocument = async (document) => {
 
-  const openai_url = `https://28c7-15-204-240-135.ngrok-free.app/upload`;
+  const openai_url = `https://5dd9-15-204-240-135.ngrok-free.app/upload`;
   const headers = {
     "content-type": "application/json",
   };
